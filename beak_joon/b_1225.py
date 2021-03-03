@@ -10,6 +10,8 @@
 #             result = result + int(a)*int(b)
     
 #     print(result)
+''' 위 코드는 시간 초과 걸려서 다시 품'''
+
 if __name__ == "__main__":
     input_data = list(input().split(" "))
 
