@@ -15,8 +15,7 @@ def compare_A_B(A_dic,B_dic):
     flag = False
     for val in A_dic:
         if(val in B_dic):
-            print(B_dic.get(val), A_dic.get(val))
-            if(B_dic.get(val) > A_dic.get(val)):
+            if(B_dic.get(val) != A_dic.get(val)):
                 flag = True
                 break
         else:
