@@ -27,3 +27,4 @@ def lcms(arr):
 
 print(lcms([2,4,6,8]))
 
+
