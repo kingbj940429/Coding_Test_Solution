@@ -1,38 +1,18 @@
-from collections import deque
+''' 파이썬에서만 사용 가능한 퀵정렬'''
+''' 기존 퀵정렬보다는 조금 느림 '''
 
-def dfs(graph, v, visited):
-    print(v , end = " ")
-    visited[v] = True
+array = [5,7,9,0,3,1,6,2,4,8]
 
-    for i in graph[v]:
-        if(not visited[i]):
-            dfs(graph, i, visited)
+def quick_sort(array):
+    if len(array)<=1:
+        return array
+    
+    pivot = array[0]
+    tail = array[1:]
 
-def bfs(graph, start, visited):
-    queue = deque([start])
-    visited[start] = True
+    left_side = [x for x in tail if x <= pivot]
+    right_side = [x for x in tail if x > pivot]
 
-    while queue:
-        v = queue.popleft()
-        print(v, end= " ")
-        for i in graph[v]:
-            if(not visited[i]):
-                queue.append(i)
-                visited[i] = True
+    return quick_sort(left_side) + [pivot] + quick_sort(right_side)
 
-graph = [
-    []
-    ,[2,3,8]
-    ,[1,7]
-    ,[1,4,5]
-    ,[3,5]
-    ,[3,4]
-    ,[7]
-    ,[2,6,8]
-    ,[1,7]
-]
-
-visited = [False] * 9
-
-#dfs(graph, 1, visited)
-bfs(graph, 1, visited)
+print(quick_sort(array))
