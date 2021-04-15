@@ -1,18 +1,18 @@
-''' 파이썬에서만 사용 가능한 퀵정렬'''
-''' 기존 퀵정렬보다는 조금 느림 '''
+def binary_search(array,target,start,end):
+    while start<=end:
+        mid = (start+end)//2
+        if array[mid] == target:
+            return mid
+        elif array[mid] > target:
+            end = mid - 1
+        else:
+            start = mid + 1
+    return None
 
-array = [5,7,9,0,3,1,6,2,4,8]
+n, target = map(int,input().split())
 
-def quick_sort(array):
-    if len(array)<=1:
-        return array
-    
-    pivot = array[0]
-    tail = array[1:]
+array = list(map(int,input().split()))
 
-    left_side = [x for x in tail if x <= pivot]
-    right_side = [x for x in tail if x > pivot]
+result = binary_search(array,target,0,n-1)
 
-    return quick_sort(left_side) + [pivot] + quick_sort(right_side)
-
-print(quick_sort(array))
+print(result+1)
