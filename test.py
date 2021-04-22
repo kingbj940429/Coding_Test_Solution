@@ -1,18 +1,21 @@
-def binary_search(array, target, start, end):
-    while start <= end:
-        mid = (start+end)//2
+'''
+최대 길이는 10
+각 길이별 가격이 주어짐
+'''
 
-        if array[mid] == target:
-            return mid
-        elif array[mid] > target:
-            end = mid - 1
-        else:
-            start = mid + 1
+# 각 길이별 가격 (0부터 시작)
+p = [0, 1, 5, 8, 9, 10, 17, 17, 20, 24, 30]
 
-n, target = map(int,input().split())
+n = int(input())
 
-array = list(map(int,input().split()))
+d = [0] * (n+1)
 
-result = binary_search(array,target,0,n-1)
+for i in range(1,n+1):
+    temp = 0
+    for j in range(i+1):
+        temp = max(temp,d[i-j] + p[j])
+    d[i] = temp
+print(d[n]) 
 
-print(result+1)
+
+
