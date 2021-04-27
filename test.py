@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 def solution(phone_book):
     phone_book.sort()
     for p1, p2 in zip(phone_book, phone_book[1:]):
@@ -8,3 +9,5 @@ def solution(phone_book):
 
 
 print(solution(["12312312312", "97674223", "1195524421","97"]))
+=======
+>>>>>>> 7f5aecbf457bc65972cd622fc4b6aa6845db2905
